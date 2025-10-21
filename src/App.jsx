@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router";
 //
 import './style/main.scss'
 //
+import LoadingScreen from "./components/LoadingScreen";
+import FirstTime from "./components/FirstTime";
 import Home from "./pages/Home";
 import Archive from "./pages/Archive";
 import Popular from "./pages/Popular";
@@ -11,7 +13,9 @@ export default function App() {
   return (
     <div className="page__wrapper">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LoadingScreen />} />
+        <Route path="/FirstTime" element={<FirstTime />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/Archive" element={<Archive />} />
         <Route path="/Popular" element={<Popular />} />
         <Route path="/Settings" element={<Settings />} />
