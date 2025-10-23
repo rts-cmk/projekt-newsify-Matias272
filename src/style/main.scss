@@ -1,4 +1,5 @@
 @use './components';
+@use './variables' as *;
 //
 * {
   box-sizing: border-box;
@@ -10,5 +11,15 @@
   max-width: 678px;
   margin: 0 auto;
 }
-
+/* news */
+.news {
+  list-style: none;
+  li {
+    color: $color-greyish;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-top: 1px solid gray;
+    padding: 5px 15px;
+  }
+}
 

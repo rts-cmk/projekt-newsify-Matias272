@@ -10,7 +10,7 @@ export default function SplashScreen() {
       initial={{ display: "flex", opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ delay: 2, duration: 0.5 }}
-      onAnimationComplete={() => navigate(`${isFirstVisit ? '/FirstTime' : '/Home'}`) }
+      onAnimationComplete={() => navigate(`${isFirstVisit ? 'Onboarding1' : '/Home'}`) }
     >
       <motion.img
         src="../img/newsify_logo.svg"

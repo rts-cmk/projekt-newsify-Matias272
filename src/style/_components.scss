@@ -79,4 +79,84 @@
   }
 }
 
-/* Intro */
+/* FirstTime Intro */
+.intro {
+  padding: 15px;
+}
+.intro__img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  img {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+.intro__text {
+  text-align: center;
+  color: $color-greyish;
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+}
+/**/
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c5c5c5;
+}
+
+.dot.active {
+  background: $color-grinch;
+  width: 40px;
+  border-radius: 10px;
+}
+/**/
+.intro__buttons {
+  list-style: none;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  li {
+    border-radius: 25px;
+    background-color: rgb(185, 185, 185);
+    max-width: 150px;
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 12px 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  button:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+  .skip__button {
+    border: 2px solid $color-grinch;
+    background-color: white;
+    color: $color-grinch;
+  }
+  .continue__button {
+    border: 2px solid $color-grinch;
+    background-color: $color-grinch;
+    color: white;
+  }
+}

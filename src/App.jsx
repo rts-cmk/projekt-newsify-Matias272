@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router";
 import './style/main.scss'
 //
 import LoadingScreen from "./components/LoadingScreen";
-import FirstTime from "./components/FirstTime";
+import Onboarding1 from "./components/Onboardingpages/Onboarding1";
+import Onboarding2 from "./components/Onboardingpages/Onboarding2";
+import Onboarding3 from "./components/Onboardingpages/Onboarding3";
 import Home from "./pages/Home";
 import Archive from "./pages/Archive";
 import Popular from "./pages/Popular";
@@ -14,7 +16,9 @@ export default function App() {
     <div className="page__wrapper">
       <Routes>
         <Route path="/" element={<LoadingScreen />} />
-        <Route path="/FirstTime" element={<FirstTime />} />
+        <Route path="/Onboarding1" element={<Onboarding1 />} />
+        <Route path="/Onboarding2" element={<Onboarding2 />} />
+        <Route path="/Onboarding3" element={<Onboarding3 />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Archive" element={<Archive />} />
         <Route path="/Popular" element={<Popular />} />
