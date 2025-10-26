@@ -42,15 +42,15 @@ export default function Home() {
               </div>
               <ul className="news__bottom">
                 {type === category &&
-                  data.map((article) => (
-                    <li key={article._id}>
-                      <a
-                        href={article.web_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {article.headline.main}
-                      </a>
+                  data.slice(5).map((article) => (
+                    <li className="article__li" key={article._id}>
+                      <figure>
+                        <img src={article.multimedia.thumbnail.url} alt="s" />
+                        <figcaption>
+                          <h3>{article.headline.main}</h3>
+                          <p></p>
+                        </figcaption>
+                      </figure>
                     </li>
                   ))}
               </ul>

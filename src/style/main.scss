@@ -28,8 +28,12 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
+
       img {
         width: 18px;
+      }
+      figcaption {
+        text-transform: capitalize;
       }
     }
     .news__top__arrow {
@@ -37,6 +41,23 @@
     }
     :hover {
       cursor: pointer;
+    }
+  }
+
+  .news__bottom {
+    padding: 10px 15px;
+    list-style: none;
+  }
+}
+.article__li {
+  padding: 5px;
+  figure {
+    display: flex;
+    gap: 10px;
+  }
+  figcaption {
+    h3 {
+      font-size: 16px;
     }
   }
 }
