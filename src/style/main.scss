@@ -1,5 +1,5 @@
-@use './components';
-@use './variables' as *;
+@use "./components";
+@use "./variables" as *;
 //
 * {
   box-sizing: border-box;
@@ -11,15 +11,32 @@
   max-width: 678px;
   margin: 0 auto;
 }
-/* news */
-.news {
+/* HomePage News */
+.news__wrapper {
   list-style: none;
-  li {
-    color: $color-greyish;
-    font-size: 16px;
-    text-transform: uppercase;
-    border-top: 1px solid gray;
-    padding: 5px 15px;
+}
+.news__li {
+  border-top: 1px solid grey;
+  .news__top {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    figure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      img {
+        width: 18px;
+      }
+    }
+    .news__top__arrow {
+      transform: rotate(-90deg);
+    }
+    :hover {
+      cursor: pointer;
+    }
   }
 }
-
