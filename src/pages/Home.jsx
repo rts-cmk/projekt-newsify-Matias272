@@ -17,7 +17,7 @@ export default function Home() {
     }
     fetchData();
   }, [type, apiKey]);
-console.log(data);
+  console.log(data);
 
   const categories = ["europe", "health", "sport", "travel", "business"];
 
@@ -53,7 +53,9 @@ console.log(data);
                         <figcaption>
                           <h3>{article.headline.main}</h3>
                           <p>{article.snippet}</p>
-                          <a target="_blank" href={article.web_url}>Read more</a>
+                          <a target="_blank" href={article.web_url}>
+                            Read more
+                          </a>
                         </figcaption>
                       </figure>
                     </li>
