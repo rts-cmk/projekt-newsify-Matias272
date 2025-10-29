@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "../components/header";
 import NavBar from "../components/NavBar";
-
+//
+import ArticlesByCategory from "../components/NewsArticles/ArticlesByCategory";
 export default function Home() {
   const [isLoading, setLoading] = useState(false);
   const [type, setType] = useState(null);
@@ -32,7 +33,7 @@ export default function Home() {
     }
 
     fetchData();
-  }, [type]);
+  }, [type, apiKey, dataByCategory]);
   console.log(dataByCategory);
 
   const categories = ["europe", "health", "sport", "business", "travel"];
@@ -40,58 +41,20 @@ export default function Home() {
   return (
     <>
       <Header isShowing />
-        {categories.map((category) => {
-          const articles = dataByCategory[category] || [];
+      {categories.map((category) => {
+        const articles = dataByCategory[category] || [];
 
-          return (
-            <details
-              key={category}
-              className="news__details"
-              onToggle={(e) => {
-                if (e.target.open) setType(category);
-              }}
-            >
-              <summary className="news__summary">
-                <span className="news__summary__title">
-                  <img src="../img/newsify_logo.svg" alt="" />
-                  {category}
-                </span>
-                <img
-                  className={"news__arrow"}
-                  src="../img/icons/flecha.svg"
-                  alt=""
-                />
-              </summary>
-
-              <ul className="news__ul">
-                {isLoading && type === category ? (
-                  <li>Loading...</li>
-                ) : articles.length > 0 ? (
-                  articles.map((article) => (
-                    <li className="article__li" key={article._id}>
-                      <figure className="article__left">
-                        <img
-                          src={article.multimedia.thumbnail.url}
-                          alt={article.headline.main}
-                        />
-                        <figcaption>
-                          <h3>{article.headline.main}</h3>
-                          <p>{article.snippet}</p>
-                          <a target="_blank" href={article.web_url}>
-                            Read more
-                          </a>
-                        </figcaption>
-                      </figure>
-                    </li>
-                  ))
-                ) : (
-                  type === category && <li>No articles found.</li>
-                )}
-              </ul>
-              <div className="box"></div>
-            </details>
-          );
-        })}
+        return (
+          <ArticlesByCategory
+            key={category}
+            category={category}
+            articles={articles}
+            isLoading={isLoading}
+            type={type}
+            setType={setType}
+          />
+        );
+      })}
       <NavBar />
     </>
   );

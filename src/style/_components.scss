@@ -1,5 +1,5 @@
 @use "./variables" as *;
-/* Loading screen*/
+/* Loading screen / Splash screen*/
 .loading-screen {
   background-color: white;
   width: 100%;
@@ -86,7 +86,7 @@
   }
 }
 
-/* FirstTime Intro */
+/* ----- FirstTime Intro ----- */
 .intro {
   padding: 15px;
 }
@@ -165,5 +165,34 @@
     border: 2px solid $color-grinch;
     background-color: $color-grinch;
     color: white;
+  }
+}
+
+/* ----- NewArticles ----- */
+/**/
+.articles__ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  .article__content {
+    border-radius: 10px;
+    background-color: rgb(220, 220, 220);
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+      font-family: sans-serif;
+    }
   }
 }
