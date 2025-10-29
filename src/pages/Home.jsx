@@ -35,12 +35,11 @@ export default function Home() {
   }, [type]);
   console.log(dataByCategory);
 
-  const categories = ["europe", "health", "sport", "travel", "business"];
+  const categories = ["europe", "health", "sport", "business", "travel"];
 
   return (
     <>
       <Header isShowing />
-      <ul className="news__wrapper">
         {categories.map((category) => {
           const articles = dataByCategory[category] || [];
 
@@ -58,7 +57,7 @@ export default function Home() {
                   {category}
                 </span>
                 <img
-                  className={`news__arrow ${type === category ? "active" : ""}`}
+                  className={"news__arrow"}
                   src="../img/icons/flecha.svg"
                   alt=""
                 />
@@ -89,10 +88,10 @@ export default function Home() {
                   type === category && <li>No articles found.</li>
                 )}
               </ul>
+              <div className="box"></div>
             </details>
           );
         })}
-      </ul>
       <NavBar />
     </>
   );
