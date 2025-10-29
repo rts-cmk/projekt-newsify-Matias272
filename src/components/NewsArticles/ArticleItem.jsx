@@ -14,6 +14,7 @@ export default function ArticleItem({ article }) {
           </a>
         </figcaption>
       </figure>
+      <div className="article__box"></div>
     </li>
   );
 }
