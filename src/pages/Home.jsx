@@ -34,7 +34,6 @@ export default function Home() {
 
     fetchData();
   }, [type, apiKey, dataByCategory]);
-  console.log(dataByCategory);
 
   const categories = ["europe", "health", "sport", "business", "travel"];
 

@@ -27,7 +27,11 @@ export default function ArticlesByCategory({
           <li>Loading...</li>
         ) : articles.length > 0 ? (
           articles.map((article) => (
-            <ArticleItem key={article._id} article={article} />
+            <ArticleItem
+              isArchivePage={false}
+              key={article._id}
+              article={article}
+            />
           ))
         ) : (
           type === category && <li>No articles found.</li>

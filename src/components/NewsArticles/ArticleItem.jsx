@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
-export default function ArticleItem({ article }) {
+export default function ArticleItem({ article, isArchivePage }) {
   const [isSaved, setIsSaved] = useState(false);
-
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("articles") || "[]");
     const alreadySaved = stored.some((a) => a._id === article._id);
@@ -14,7 +13,7 @@ export default function ArticleItem({ article }) {
     const stored = JSON.parse(localStorage.getItem("articles") || "[]");
     if (isSaved) {
       const updated = stored.filter((a) => a._id !== article._id);
-      localStorage.setItem("articles", JSON.stringify(updated));+
+      localStorage.setItem("articles", JSON.stringify(updated));
       setIsSaved(false);
     } else {
       const updated = [...stored, article];
@@ -45,21 +44,39 @@ export default function ArticleItem({ article }) {
         </figcaption>
       </figure>
       <button className="article__box" onClick={handleSave}>
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          fill={isSaved ? "white" : "none"}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {isArchivePage ? (
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 24 24"
+            fill={isSaved ? "white" : "none"}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill={isSaved ? "white" : "none"}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </button>
     </motion.li>
   );
