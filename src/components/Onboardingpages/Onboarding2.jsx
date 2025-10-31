@@ -21,7 +21,7 @@ export default function FirstTime() {
       <OnboardingDots current={2} />
       <ul className="intro__buttons">
         <li>
-          <button className="skip__button" onClick={() => navigate("/Home")}>
+          <button className="skip__button" onClick={() => navigate("/Login")}>
             Skip
           </button>
         </li>

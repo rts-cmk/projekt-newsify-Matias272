@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
-export default function ArticleItem({ article, isArchivePage }) {
+export default function ArticleItem({ article, isArchivePage, updateList }) {
   const [isSaved, setIsSaved] = useState(false);
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("articles") || "[]");
@@ -14,10 +14,15 @@ export default function ArticleItem({ article, isArchivePage }) {
     if (isSaved) {
       const updated = stored.filter((a) => a._id !== article._id);
       localStorage.setItem("articles", JSON.stringify(updated));
+
       setIsSaved(false);
+
+      if (isArchivePage) updateList(updated);
     } else {
       const updated = [...stored, article];
       localStorage.setItem("articles", JSON.stringify(updated));
+      if (isArchivePage) updateList(updated);
+
       setIsSaved(true);
     }
   };
@@ -27,7 +32,7 @@ export default function ArticleItem({ article, isArchivePage }) {
       drag="x"
       dragElastic={0.1}
       dragConstraints={{ left: -115, right: 0 }}
-      className="article__item"
+      className={"article__item"}
       key={article._id}
     >
       <figure className="article__content">
@@ -43,17 +48,20 @@ export default function ArticleItem({ article, isArchivePage }) {
           </a>
         </figcaption>
       </figure>
-      <button className="article__box" onClick={handleSave}>
+      <button
+        className={`article__box ${isArchivePage ? "archive" : "home"}`}
+        onClick={handleSave}
+      >
         {isArchivePage ? (
           <svg
-            width="35"
-            height="35"
+            width="30"
+            height="30"
             viewBox="0 0 24 24"
             fill={isSaved ? "white" : "none"}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z"
+              d="M3 6H21M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6"
               stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
@@ -62,8 +70,8 @@ export default function ArticleItem({ article, isArchivePage }) {
           </svg>
         ) : (
           <svg
-            width="20"
-            height="20"
+            width="30"
+            height="30"
             viewBox="0 0 24 24"
             fill={isSaved ? "white" : "none"}
             xmlns="http://www.w3.org/2000/svg"

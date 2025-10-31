@@ -6,6 +6,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import Onboarding1 from "./components/Onboardingpages/Onboarding1";
 import Onboarding2 from "./components/Onboardingpages/Onboarding2";
 import Onboarding3 from "./components/Onboardingpages/Onboarding3";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Archive from "./pages/Archive";
 import Popular from "./pages/Popular";
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/Onboarding2" element={<Onboarding2 />} />
         <Route path="/Onboarding3" element={<Onboarding3 />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/Archive" element={<Archive />} />
         <Route path="/Popular" element={<Popular />} />
         <Route path="/Settings" element={<Settings />} />
