@@ -7,7 +7,7 @@ export default function Home() {
   const [isLoading, setLoading] = useState(false);
   const [type, setType] = useState(null);
   const [dataByCategory, setDataByCategory] = useState({});
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = IL9vHKRQvBHfMhjnmGHPTBAytpedrcX6;
 
   useEffect(() => {
     if (!type) return;
