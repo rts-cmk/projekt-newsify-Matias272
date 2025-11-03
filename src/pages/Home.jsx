@@ -18,7 +18,7 @@ export default function Home() {
       setLoading(true);
       try {
         const response = await fetch(
-          `/nyt/svc/search/v2/articlesearch.json?q=${type}&api-key=${apiKey}`
+          `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${type}&api-key=${apiKey}`
         );
         const result = await response.json();
         setDataByCategory((prev) => ({
