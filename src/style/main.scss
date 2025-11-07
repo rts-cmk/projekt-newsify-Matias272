@@ -1,0 +1,125 @@
+@use "./components";
+@use "./variables" as *;
+//
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+//
+.page__wrapper {
+  min-height: 101vh;
+  max-width: 678px;
+  margin: 0 auto;
+}
+
+/* ----- Login-Page -----*/
+.loginheader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 50px;
+  .loginimg {
+    min-width: 88px;
+    min-height: 128px;
+    margin-bottom: 10px;
+  }
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  h2 {
+    font-size: 38px;
+    margin-bottom: 30px;
+  }}
+.navigate {
+  h3 {
+    max-width: 350px;
+    margin: 30px auto 50px auto;
+    position: relative;
+    text-align: center;
+  }
+  h3:before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: black;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: -2;
+  }
+  h3:after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: black;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: -2;
+  }
+  span {
+    background-color: white;
+  }
+  ul {
+    list-style: none;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    li {
+      border-radius: 25px;
+      background-color: rgb(185, 185, 185);
+      max-width: 350px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+      font-size: 18px;
+      border-radius: 25px;
+      padding: 12px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+    button:hover {
+      cursor: pointer;
+      transform: translateY(-5px);
+    }
+    .navigatefacebook {
+      border: 2px solid lightgray;
+      background-color: white;
+      color: rgb(30, 30, 30);
+    }
+    .navigategoogle {
+      border: 2px solid lightgray;
+      background-color: white;
+      color: rgb(30, 30, 30);
+    }
+    .navigatepassword {
+      border: 2px solid $color-grinch;
+      background-color: $color-grinch;
+      color: white;
+      box-shadow: rgb(77, 134, 31, 50) 0px 4px 8px 0px;
+    }
+  }
+  .logindiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    a {
+      color: $color-grinch;
+    }
+  }
+}
+.credit {
+  min-width: 150px;
+}
